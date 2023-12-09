@@ -140,4 +140,14 @@ void sig_int_handler(int);
 /* -- mm.c -- */
 int bfree(void **);
 
+/* -- allre.c -- */
+char *mem_set(char *, char, unsigned int);
+void ssfree(char *);
+void *_re_alloc(void *, unsigned int, unsigned int);
+
+/* -- ginfo.c -- */
+void cl_info(info_t *);
+void set_info(info_t *,char **);
+void ffinfo(info_t *, int);
+
 #endif
