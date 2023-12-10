@@ -88,6 +88,16 @@ extern char **environ;
 #define HIST_FILE	".sSh_hist"
 #define HIST_MAX	4096
 
+/*-- gline() */
+#define USE_GETLINE	0
+#define USE_STRTOK	0
+
+/* -- chain CMD - */
+#define CMD_NORM	0
+#define CMD_OR		1
+#define CMD_AND		2
+#define CMD_CHAIN	3
+
 /*-------------------------file prototypes----------------------*/
 
 /* -- VAR.C --*/
@@ -149,5 +159,18 @@ void *_re_alloc(void *, unsigned int, unsigned int);
 void cl_info(info_t *);
 void set_info(info_t *,char **);
 void ffinfo(info_t *, int);
+
+/* -- str_lc.c -- */
+int st4r_len(char *);
+int strcomp(char *, char *);
+char *starts_with(const char *, const char *);
+char *_catstr(char *, char *);
+
+/* -- listt.c -- */
+list_t *add_node(list_t **, const char *, int);
+list_t *add_end_node(list_t **, const char *, int);
+size_t print_liststr(const list_t *);
+int delnode_at_index(list_t **, unsigned int);
+void freelist(list_t **);
 
 #endif
