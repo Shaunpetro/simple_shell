@@ -173,4 +173,28 @@ size_t print_liststr(const list_t *);
 int delnode_at_index(list_t **, unsigned int);
 void freelist(list_t **);
 
+/* -- shlp.c --*/
+int hsh(info_t *, char **);
+int find_buin(info_t *);
+void find_cmd(info_t *);
+void fork_cmd(info_t *);
+
+/* -- sizet.c -- */
+size_t list_len(const list_t *);
+char **lt_strings(list_t *);
+list_t *node_swith(list_t *, char *, char);
+ssize_t get_node_index(list_t *, list_t *);
+size_t list_len(const list_t *);
+
+/* -- str_man.c -- */
+char *cpy_str(char *, char *);
+char *_dupstr(const char *);
+void _puts(char *);
+int _putchar(char);
+
+/* -- quit.c -- */
+char *cpy_nstr(char *, char *, int);
+char *cat_nstr(char *, char *, int);
+char *_fcharstr(char *, char);
+
 #endif
