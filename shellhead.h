@@ -43,7 +43,7 @@ typedef struct builtin
 /**
  * struct passinfo - with pseudo arg's passing into functions
  * @arg: str gnerated for getline arg's
- * argv: str arg's array
+ * @argv: str arg's array
  * @argc: argument count
  * @line_count: error count
  * @linecount_flag: if on count line
@@ -56,8 +56,8 @@ typedef struct builtin
  * @err_num: error code
  * @fname: program filename
  * @alias: alias node
- * cmd_buf: address of ptr to cmd buf
- * cmd_buf_type: command type
+ * @cmd_buf: address of ptr to cmd buf
+ * @cmd_buf_type: command type
  * @readfd: the fd for reading lines
  * @status: return stastus of last x command
  */
@@ -82,7 +82,7 @@ typedef struct passinfo
 	char **cmd_buf;
 	int readfd;
 	int cmd_buf_type;
-}info_t;
+} info_t;
 extern char **environ;
 
 #define HIST_FILE	".sSh_hist"
@@ -132,7 +132,7 @@ int _senv(info_t *, char *, char *);
 /* -- prs.c -- */
 int pt_cmd(info_t *, char *);
 char *dupchars(char *, int start, int end);
-char*f_path(info_t *, char *, char *);
+char *f_path(info_t *, char *, char *);
 
 /* --- hist.c -- */
 char *ghist_file(info_t *);
@@ -157,7 +157,7 @@ void *_re_alloc(void *, unsigned int, unsigned int);
 
 /* -- ginfo.c -- */
 void cl_info(info_t *);
-void set_info(info_t *,char **);
+void set_info(info_t *, char **);
 void ffinfo(info_t *, int);
 
 /* -- str_lc.c -- */
@@ -196,5 +196,31 @@ int _putchar(char);
 char *cpy_nstr(char *, char *, int);
 char *cat_nstr(char *, char *, int);
 char *_fcharstr(char *, char);
+
+/* -- adhis.c --*/
+int _mexit(info_t *);
+int _mycd(info_t *);
+int _mhelp(info_t *);
+
+/* -- direx.c --*/
+int _mhist(info_t *);
+int alias_us(info_t *, char *);
+int salias(info_t *, char *);
+int print_alias(list_t *);
+
+/* -- erradia.c -- */
+int _erradia(char *);
+void print_error(info_t *, char *);
+int print_d(int, int);
+char *convert_number(long int, int, int);
+void remove_comments(char *);
+
+/* -- putfunc.c -- */
+int _putchar(char);
+int _putfd(char, int);
+int _putsfd(char *, int);
+
+/* -- mainshell -- */
+int main(int, char **);
 
 #endif
