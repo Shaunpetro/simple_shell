@@ -40,7 +40,7 @@ int _usenv(info_t *info, char *var)
 		p = starts_with(node->str, var);
 		if (p && *p == '=')
 		{
-			info->env_changed = delete_node_at_index(&(info->env), e);
+			info->env_changed = delnode_at_index(&(info->env), e);
 			e = 0;
 			node = info->env;
 			continue;
@@ -68,12 +68,12 @@ int _senv(info_t *info, char *var, char *value)
 
 	if (!var || !value)
 		return (0);
-	buf = malloc(_strlen(var) + _strlen(value) + 2);
+	buf = malloc(str_len(var) + str_len(value) + 2);
 	if (!buf)
 		return (1);
-	_strcpy(buf, var);
-	_strcat(buf, "=");
-	_strcat(buf, value);
+	cpy_str(buf, var);
+	_catstr(buf, "=");
+	_catstr(buf, value);
 	node = info->env;
 
 	while (node)

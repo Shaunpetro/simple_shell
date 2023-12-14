@@ -15,7 +15,7 @@ char *set_mem(char *p, char b, unsigned int n)
 
 	for (e = 0; e < n; e++)
 		p[e] = b;
-	return (s);
+	return (p);
 }
 /**
  * ssfree - frees a string of string

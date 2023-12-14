@@ -65,7 +65,7 @@ int print_d(int input, int fd)
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		__putcar = _eputchar;
+		__putchar = _eputchar;
 
 	if (input < 0)
 	{
@@ -101,7 +101,7 @@ int print_d(int input, int fd)
 
 char *convert_number(long int num, int base, int flags)
 {
-	static car *array;
+	static char *array;
 	static char buffer[50];
 	char sign = 0;
 	char *ptr;

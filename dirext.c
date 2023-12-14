@@ -1,4 +1,4 @@
-#include "shellhead.c"
+#include "shellhead.h"
 
 /**
  * _mexit - exit shell

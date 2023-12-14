@@ -64,7 +64,7 @@ void chk_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 		if (!info->status)
 		{
 			buf[i] = 0;
-			f = len
+			f = len;
 		}
 	}
 	*p = f;
@@ -85,10 +85,10 @@ int alias_replace(info_t *info)
 
 	for (e = 0; e < 10; e++)
 	{
-		node = node_starts_with(info->alias, info->argv[0], '=');
+		node = node_swith(info->alias, info->argv[0], '=');
 		if (!node)
 			return (0);
-		p = _strdup(p + 1);
+		p = _dupstr(p + 1);
 		if (!p)
 			return (0);
 		info->argv[0] = p;
@@ -113,26 +113,26 @@ int var_replace(info_t *info)
 		if (info->argv[e][0] != '$' || !info->argv[e][1])
 			continue;
 
-		if (!_strcmp(info->argv[e], "$?"))
+		if (!strcomp(info->argv[e], "$?"))
 		{
 			replace_string(&(info->argv[e]),
-					_strdup(convert_number(info->status, 10, 0)));
+					_dupstr(convert_number(info->status, 10, 0)));
 			continue;
 		}
-		if (!_strcmp(info->argv[e], "$$"))
+		if (!strcomp(info->argv[e], "$$"))
 		{
 			replace_string(&(info->argv[e]),
-					_strdup(convert_number(getpid(), 10, 0)));
+					_dupstr(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_starts_with(info->env, &info->argv[e][1], '=');
+		node = node_swith(info->env, &info->argv[e][1], '=');
 			if (node)
 			{
 				replace_string(&(info->argv[e]),
-						_strdup(_strchr(node->str, '=') + 1));
+						_dupstr(_fcharstr(node->str, '=') + 1));
 				continue;
 			}
-			replace_string(&info->argv[e], _strdup(""));
+			replace_string(&info->argv[e], _dupstr(""));
 	}
 	return (0);
 }
