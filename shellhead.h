@@ -156,9 +156,9 @@ int renum_hist(info_t *);
 int bhist_list(info_t *, char *, int linrcount);
 
 /* -- gline.c -- */
-ssize_t inbuf(info_t *, char **, size_t);
+ssize_t inbuf(info_t *, char **, size_t *);
 ssize_t getinput(info_t *);
-int _gline(info_t *, char **, size_t);
+int _gline(info_t *, char **, size_t *);
 void sig_int_handler(int);
 
 /* -- mm.c -- */
@@ -166,7 +166,7 @@ int bfree(void **);
 
 /* -- allre.c -- */
 char *mem_set(char *, char, unsigned int);
-void ssfree(char *);
+void ssfree(char **);
 void *_re_alloc(void *, unsigned int, unsigned int);
 
 /* -- ginfo.c -- */
@@ -175,7 +175,7 @@ void set_info(info_t *, char **);
 void ffinfo(info_t *, int);
 
 /* -- str_lc.c -- */
-int st4r_len(char *);
+int str_len(char *);
 int strcomp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_catstr(char *, char *);

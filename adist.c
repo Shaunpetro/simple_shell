@@ -41,7 +41,7 @@ int salias(info_t *info, char *str)
 	if (!*++p)
 		return (alias_us(info, str));
 	alias_us(info, str);
-	return (add_node_end(&(info->alias), str, 0) == NULL);
+	return (add_end_node(&(info->alias), str, 0) == NULL);
 }
 
 /**
@@ -95,7 +95,7 @@ int _myalias(info_t *info)
 	{
 		p = _fcharstr(info->argv[e], e++);
 		if (p)
-			set_alias(info, info->argv[e]);
+			salias(info, info->argv[e]);
 		else
 			print_alias(node_swith(info->alias, info->argv[e], '='));
 	}

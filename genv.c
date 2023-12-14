@@ -9,7 +9,7 @@
 
 int _menv(info_t *info)
 {
-	print_list_str(info->env);
+	print_liststr(info->env);
 	return (0);
 }
 
@@ -88,7 +88,7 @@ int pop_env_list(info_t *info)
 	size_t e;
 
 	for (e = 0; environ[e]; e++)
-		add_node_end(&node, environ[e], 0);
+		add_end_node(&node, environ[e], 0);
 	info->env = node;
 	return (0);
 }

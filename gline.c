@@ -23,7 +23,7 @@ ssize_t inbuf(info_t *info, char **buf, size_t *len)
 #if USE_GETLINE
 		g = getline(buf, &len_p, stdin);
 #else
-		g = _getline(info, buf, &len_p);
+		g = getline(info, buf, &len_p);
 #endif
 		if (g > 0)
 		{
@@ -81,7 +81,7 @@ ssize_t getinput(info_t *info)
 			info->cmd_buf_type = CMD_NORM;
 		}
 		*buf_p = p;
-		return (_strlen(p));
+		return (str_len(p));
 	}
 	*buf_p = buf;
 	return (g);
@@ -130,21 +130,21 @@ int _gline(info_t *info, char **ptr, size_t *length)
 		s = *length;
 	if (e == len)
 		e = len = 0;
-	g = read_buf(info, buf, &len);
+	g = r_buf(info, buf, &len);
 	if (g == -1 || (g == 0 && len == 0))
 		return (-1);
-	c = _strchr(buf + e, '\n');
+	c = _fcharstr(buf + e, '\n');
 	f = c ? 1 + (unsigned int)(c - buf) : len;
 	if (!new_p)
 		return (p ? free(p), -1 : -1);
 
 	if (s)
-		_strncat(new_p, buf + e, f - e);
+		cat_nstr(new_p, buf + e, f - e);
 	else
-		_strncpy(new_p, buf + e, f - e + 1);
+		cpy_nstr(new_p, buf + e, f - e + 1);
 	s += f - e;
 	e = f;
-	n = new_p;
+	p = new_p;
 	if (length)
 		*length = s;
 	*ptr = p;

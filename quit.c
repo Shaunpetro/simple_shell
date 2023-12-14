@@ -1,4 +1,4 @@
-#include "shellhead.c"
+#include "shellhead.h"
 
 /**
  * *cpy_nstr - copy the nth string

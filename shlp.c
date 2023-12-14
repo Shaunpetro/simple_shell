@@ -55,7 +55,7 @@ int hsh(info_t *info, char **av)
 int find_buin(info_t *info)
 {
 	int e, built_in_ret = -1;
-	buin_table builtintbl[] = {
+	builtin_table builtintbl[] = {
 		{"exit", _mexit}, {"env", _menv},
 		{"help", _mhelp}, {"history", _myhist},
 		{"setenv", _msenv}, {"unsetenv", _musenv},

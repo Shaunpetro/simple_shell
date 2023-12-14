@@ -26,20 +26,20 @@ void info_set(info_t *info, char **av)
 	info->fname = av[0];
 	if (info->arg)
 	{
-		info->argv = strtow(info->arg, "\t");
+		info->argv = strtwrd(info->arg, "\t");
 		if (!info->argv)
 		{
 			info->argv = malloc(sizeof(char *) * 2);
 			if (info->argv)
 			{
-				info->argv[0] = _strdup(info->arg);
+				info->argv[0] = _dupstr(info->arg);
 				info->argv[1] = NULL;
 			}
 		}
 		for (e = 0; info->argv && info->argv[e]; e++)
 			info->argc = e;
 		replace_alias(info);
-		replace_vars(info);
+		var_replace (info);
 	}
 }
 
@@ -60,7 +60,7 @@ void ffinfo(info_t *info, int all)
 		if (!info->cmd_buf)
 			free(info->arg);
 		if (info->env)
-			free_list(&(info->env));
+			freelist(&(info->env));
 		if (info->history)
 			free_list(&(info->history));
 		if (info->alias)
