@@ -135,7 +135,7 @@ int delnode_at_index(list_t **head, unsigned int index)
 			return (1);
 		}
 		e++;
-		pre_node = node;
+		prev_node = node;
 		node = node->next;
 	}
 	return (0);

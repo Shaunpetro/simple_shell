@@ -29,7 +29,7 @@ int hsh(info_t *info, char **av)
 		}
 		else if (intactive(info))
 			_putchar('\n');
-		free_info(info, 0);
+		ffinfo(info, 0);
 	}
 	whist(info);
 	free_info(info, 1);
@@ -56,10 +56,14 @@ int find_buin(info_t *info)
 {
 	int e, built_in_ret = -1;
 	builtin_table builtintbl[] = {
-		{"exit", _mexit}, {"env", _menv},
-		{"help", _mhelp}, {"history", _myhist},
-		{"setenv", _msenv}, {"unsetenv", _musenv},
-		{"cd", _mycd}, {"alias", _myalias},
+		{"exit", _mexit},
+		{"env", _menv},
+		{"help", _mhelp},
+		{"history", _mhist},
+		{"setenv", _msenv},
+		{"unsetenv", _musenv},
+		{"cd", _mycd},
+		{"alias", _myalias},
 		{NULL, NULL}
 	};
 	for (e = 0; builtintbl[e].type; e++)
@@ -95,7 +99,7 @@ void find_cmd(info_t *info)
 			f++;
 	if (!f)
 		return;
-	path = find_path(info, _genv(info, "PATH= "), info->argv[0]);
+	path = f_path(info, _genv(info, "PATH= "), info->argv[0]);
 	if (path)
 	{
 		info->path = path;

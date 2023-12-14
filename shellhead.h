@@ -191,7 +191,7 @@ void freelist(list_t **);
 int hsh(info_t *, char **);
 int find_buin(info_t *);
 void find_cmd(info_t *);
-void fork_cmd(info_t *);
+void forkcmd(info_t *);
 
 /* -- sizet.c -- */
 size_t list_len(const list_t *);
