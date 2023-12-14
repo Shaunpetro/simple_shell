@@ -16,11 +16,11 @@
 #include <errno.h>
 
 /* number conversion */
-#define CONVERT_UNSIGNED	1
-#define CONVERT_LOWERCASE	2
+#define CONVERT_UNSIGNED	2
+#define CONVERT_LOWERCASE	1
 
 /**
- * struct strlist
+ * struct strlist - LL
  * @num: num feild
  * @str: str
  * @next: next node pointer
@@ -97,14 +97,15 @@ typedef struct passinfo
 	int readfd;
 	int cmd_buf_type;
 } info_t;
+
 extern char **environ;
 
 #define HIST_FILE	".sSh_hist"
 #define HIST_MAX	4096
 
 /*-- gline() */
-#define USE_GETLINE	0
-#define USE_STRTOK	0
+#define USE_GETLINE 0
+#define USE_STRTOK 0
 
 /* -- chain CMD - */
 #define CMD_NORM	0
