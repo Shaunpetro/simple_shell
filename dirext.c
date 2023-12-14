@@ -16,13 +16,13 @@ int _mexit(info_t *info)
 		exitchk = _erradia(info->argv[1]);
 		if (exitchk == -1)
 		{
-			info->atatus = 2;
+			info->status = 2;
 			print_error(info, "Unallowed Number: ");
 			_eputs(info->argv[1]);
 			_eputchar('\n');
 			return (1);
 		}
-		info->err_num = _errdia(info->argv[1]);
+		info->err_num = _erradia(info->argv[1]);
 		return (-2);
 	}
 	info->err_num = -1;
@@ -91,8 +91,7 @@ int _mhelp(info_t *info)
 	char **arr_arg;
 
 	arr_arg = info->argv;
-	_puts("Oops! Help works fine,
-			but seems the function isn't implemented yet\n");
+	_puts("Oops! Help works fine, seems the function isn't executed yet\n");
 	if (0)
 		_puts(*arr_arg);
 	return (0);

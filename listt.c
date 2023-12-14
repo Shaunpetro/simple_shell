@@ -1,4 +1,4 @@
-#include "shellhead.c"
+#include "shellhead.h"
 
 /**
  * add_node - inserts node at the start of list

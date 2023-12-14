@@ -36,8 +36,8 @@ char **strtwrd(char *str, char *d)
 		{
 			for (k = 0; k < f; k++)
 				free(s[k]);
-			free(s)
-				return (NULL);
+			free(s);
+			return (NULL);
 		}
 		for (m = 0; m < k; m++)
 			s[f][m] = str[e++];
