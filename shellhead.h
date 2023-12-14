@@ -234,6 +234,9 @@ int _putchar(char);
 int _putfd(char, int);
 int _putsfd(char *, int);
 
+void _eputs(char *);
+int _eputchar(char);
+
 /* -- mainshell -- */
 int main(int, char **);
 

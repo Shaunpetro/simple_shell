@@ -15,6 +15,11 @@ int pt_cmd(info_t *info, char *path)
 	(void)info;
 	if (!path || stat(path, &st))
 		return (0);
+	if (st.st_mode & S_IFREG)
+	{
+		return (1);
+	}
+	return (0);
 }
 
 /**
@@ -54,7 +59,7 @@ char *f_path(info_t *info, char *strpath, char *cmd)
 
 	if (!strpath)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "/"))
+	if ((str_len(cmd) > 2) && starts_with(cmd, "/"))
 	{
 		if (pt_cmd(info, cmd))
 			return (cmd);
