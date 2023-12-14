@@ -21,9 +21,9 @@ int main(int ac, char **av)
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY);
-		if (FD == -1)
+		if (fd == -1)
 		{
-			if (errno == EACCESS)
+			if (errno == EACCES)
 			{
 				exit(126);
 			}
