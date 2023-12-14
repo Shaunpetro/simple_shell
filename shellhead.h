@@ -20,6 +20,20 @@
 #define CONVERT_LOWERCASE	2
 
 /**
+ * struct strlist
+ * @num: num feild
+ * @str: str
+ * @next: next node pointer
+ */
+
+typedef struct strlist
+{
+	int num;
+	char *str;
+	struct strlist *next;
+} list_t;
+
+/**
  * struct builtin - contains builtin str
  * @type: builtin cmd flag
  * @func: builtin flag

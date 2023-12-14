@@ -44,7 +44,7 @@ char *_dupstr(const char *str)
 	ret = malloc(sizeof(char) * (length + 1));
 	if (!ret)
 		return (NULL);
-	for (length++; legnth--;)
+	for (length++; length--;)
 		ret[length] = *--str;
 	return (ret);
 }
