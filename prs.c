@@ -70,11 +70,11 @@ char *f_path(info_t *info, char *strpath, char *cmd)
 		{
 			path = dupchars(strpath, curr_pos, e);
 			if (!*path)
-				_strcat(path, cmd);
+				_catstr(path, cmd);
 			else
 			{
 				strcat(path, "/");
-				_strcat(path, cmd);
+				_catstr(path, cmd);
 			}
 			if (pt_cmd(info, path))
 				return (path);

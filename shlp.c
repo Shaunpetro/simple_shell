@@ -32,7 +32,7 @@ int hsh(info_t *info, char **av)
 		ffinfo(info, 0);
 	}
 	whist(info);
-	free_info(info, 1);
+	ffinfo(info, 1);
 	if (!intactive(info) && info->status)
 		exit(info->status);
 	if (buin_ret == -2)
