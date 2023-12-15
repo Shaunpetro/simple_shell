@@ -93,7 +93,7 @@ int _myalias(info_t *info)
 	}
 	for (e = 1; info->argv[e]; e++)
 	{
-		p = _fcharstr(info->argv[e], e++);
+		p = _fcharstr(info->argv[e], '=');
 		if (p)
 			salias(info, info->argv[e]);
 		else

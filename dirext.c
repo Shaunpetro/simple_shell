@@ -41,6 +41,8 @@ int _mycd(info_t *info)
 	char *s, *dir, buffer[1024];
 	int chdir_ret;
 
+	s = getcwd(buffer, 1024);
+
 	if (!s)
 		_puts("TODO: >>get dierectory failure msg here<<\n");
 	if (!info->argv[1])
