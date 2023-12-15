@@ -31,6 +31,7 @@ char **lt_strings(list_t *head)
 	list_t *node = head;
 	size_t e = list_len(head), f;
 	char **strs;
+	char *str;
 
 	if (!head || !e)
 		return (NULL);
