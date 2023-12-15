@@ -22,7 +22,7 @@ int _mhist(info_t *info)
  * Return: 0 success, 1 error
  */
 
-int alias_us(info *info, char *str)
+int alias_us(info_t *info, char *str)
 {
 	char *p, c;
 	int ret;
@@ -77,13 +77,11 @@ int print_alias(list_t *node)
 		p = _fcharstr(node->str, '=');
 
 		for (a = node->str; a <= p; a++)
-		{
 			_putchar(*a);
 			_putchar('\'');
 			_puts(p + 1);
-			_puts('"\n");
-		}
-		return (0);
+			_puts("'\n");
+			return (0);
 	}
 	return (1);
 }
