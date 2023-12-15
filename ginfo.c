@@ -38,7 +38,7 @@ void info_set(info_t *info, char **av)
 		}
 		for (e = 0; info->argv && info->argv[e]; e++)
 			info->argc = e;
-		replace_alias(info);
+		alias_replace(info);
 		var_replace (info);
 	}
 }
@@ -62,9 +62,9 @@ void ffinfo(info_t *info, int all)
 		if (info->env)
 			freelist(&(info->env));
 		if (info->history)
-			free_list(&(info->history));
+			freelist(&(info->history));
 		if (info->alias)
-			free_list(&(info->alias));
+			freelist(&(info->alias));
 
 		ffree(info->environ);
 		info->environ = NULL;
